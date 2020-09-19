@@ -1,0 +1,63 @@
+.header {
+    padding: 15px 0;
+
+    >.row {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__menu {
+
+        &-inner {
+            border-radius: 50%;
+            width: 69px;
+            height: 69px;
+            border: 1px solid $dark;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        span {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__logo {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .text {
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: $dark;
+        }
+        
+        .count {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid $black;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: $dark;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

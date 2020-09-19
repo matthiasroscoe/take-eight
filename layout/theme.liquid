@@ -13,37 +13,39 @@
 </head>
 <body>
 
-  <header class="header">
-      <div class="header__menu">
-        <div class="header__menu-inner">
-          <span>m</span>
-          <span>e</span>
-          <span>n</span>
-          <span>u</span>
-        </div>
-      </div>
-
-      <div class="header__logo">
-        <img src="" alt="">
-      </div>
-
-      <div class="header__right">
-          <div class="header__cart">
-              <a href="/cart">
-                  <span class="text">CART</span>
-                  <span class="count js-cart-count"></span>
-              </a>
+  <header class="header container">
+      <div class="row">
+        
+        <div class="header__menu col-auto">
+          <div class="header__menu-inner">
+            <span>m</span>
+            <span>e</span>
+            <span>n</span>
+            <span>u</span>
           </div>
+        </div>
 
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="/account">account</a>
-              {{ 'log out'  | customer_logout_link }}
-            {% else %}
-              {{ 'log in ' | customer_login_link }}
-              {{ 'register' | customer_register_link }}
+        <div class="header__logo text-center col-5">
+          Take</br>Eight
+        </div>
+  
+        <div class="header__right col-auto">
+            <a class="header__cart" href="/cart">
+                <span class="text">CART</span>
+                <span class="count js-cart-count"></span>
+            </a>
+  
+            {% if shop.customer_accounts_enabled %}
+              {% if customer %}
+                <a href="/account">account</a>
+                {{ 'log out'  | customer_logout_link }}
+              {% else %}
+                {{ 'log in ' | customer_login_link }}
+                {{ 'register' | customer_register_link }}
+              {% endif %}
             {% endif %}
-          {% endif %}
+        </div>
+
       </div>
   </header>
 
