@@ -1,46 +1,66 @@
 {% if cart.item_count > 0 %}
-  <h1>cart</h1>
-  <form action="/cart" method="post" novalidate>
-    <table>
-      <thead>
-        <th colspan="2">Prod</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>total</th>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr>
-            <td>
-              <a href="{{ item.url | within: collections.all }}">
-                <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-              </a>
-            </td>
-            <td>
-              <a href="{{ item.url }}">{{ item.product.title }}</a>
-              {{ item.variant.title }}
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-            </td>
-            <td>{{ item.price | money }}</td>
-            <td>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-            </td>
-            <td>
-              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-              {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div>
-      <p>sub total : {{ cart.total_price | money }}</p>
-      <button type="submit" name="update">Update</button>
-      <button type="submit" name="checkout">Checkout</button>
+  <section class="cart">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          
+          <h1>Your Cart</h1>
+
+          <form class="cart__form" action="/cart" method="post" novalidate>
+            <div class="row">
+              
+              <div class="col-lg-7 cart__items">
+                {% for item in cart.items %}
+                  <div class="cart__item d-flex flex-column flex-lg-row">
+                    <a class="image" href="{{ item.url | within: collections.all }}">
+                      <img src="{{ item | img_url: '150x150' }}" alt="{{ item.title | escape }}">
+                    </a>
+                    
+                    <div class="details d-flex flex-column flex-lg-row">
+                      <a class="name" href="{{ item.url }}">{{ item.product.title }}</a>
+                      <!-- {{ item.variant.title }} -->
+                      
+                      <!-- <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0"> -->
+                      
+                      <p class="price">{{ item.price | money }}</p>
+
+                      <a class="remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">&times;</a>
+                    </div>
+                      <!-- 
+                        {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                        {{ item.line_price | money }}
+                        {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                      -->
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="col-lg-4 cart__totals">
+                <div class="inner">
+                  <h4 class="mb-4">Subtotal {{ cart.total_price | money }}</h4>
+                  <!-- <button class="c__btn d-block mb-2" type="submit" name="update">Update</button> -->
+                  <button class="c__btn d-block" type="submit" name="checkout">Checkout</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
     </div>
-  </form>
+  </section>
+  
 {% else %}
-  <h2>cart</h2>
-  Cart is empty
+
+  <section class="cart cart--empty">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Your cart is empty</h2>
+          <a class="c__btn" href="/">Return Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endif %}

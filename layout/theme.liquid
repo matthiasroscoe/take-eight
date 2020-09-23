@@ -8,34 +8,38 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }} <!-- Header hook for plugins -->
-    {{ 'application.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'application.js' | asset_url | script_tag }}
-</head>
-<body>
 
-  <header class="header container">
+    {% include 'head-embed' %}
+
+    {{ 'application.scss.css' | asset_url | stylesheet_tag }}
+
+</head>
+<body class="template-{{ template }}">
+
+  <header>
+    <div class="header container pos-rel">
       <div class="row">
         
         <div class="header__menu col-auto">
           <div class="header__menu-inner">
-            <span>m</span>
-            <span>e</span>
-            <span>n</span>
-            <span>u</span>
+            <span class="letter letter--1">m</span>
+            <span class="letter letter--2">e</span>
+            <span class="letter letter--3">n</span>
+            <span class="letter letter--4">u</span>
           </div>
         </div>
 
-        <div class="header__logo text-center col-5">
+        <a href="/" class="header__logo pos-abs text-center">
           Take</br>Eight
-        </div>
+        </a>
   
         <div class="header__right col-auto">
             <a class="header__cart" href="/cart">
                 <span class="text">CART</span>
-                <span class="count js-cart-count"></span>
+                <div class="count js-cart-count">{{ cart.item_count }}</div>
             </a>
   
-            {% if shop.customer_accounts_enabled %}
+            <!-- {% if shop.customer_accounts_enabled %}
               {% if customer %}
                 <a href="/account">account</a>
                 {{ 'log out'  | customer_logout_link }}
@@ -43,32 +47,60 @@
                 {{ 'log in ' | customer_login_link }}
                 {{ 'register' | customer_register_link }}
               {% endif %}
-            {% endif %}
+            {% endif %} -->
         </div>
 
       </div>
+    </div>
   </header>
-
-  <section class="hw-imgtxt">
-      <div class="container">
-          <div class="row">
-              <div class="hw-imgtxt__text | col-lg-6">
-                  <h1>Lorem ipsum</h1>
-                  <p>Dolor sit amet. Adipiscing consectetur elit.</p>
-                  <!-- link or arrow -->
-              </div>
-              <div class="hw-imgtxt__img col-lg-6 d-none d-lg-block">
-                  <img src="" alt="">
-              </div>
-          </div>
-      </div>
-  </section>
-
-
-  
-
+      
   <main role="main">
     {{ content_for_layout }}
+
+    <footer class="pos-rel bg__light{% if template == 'cart' %} bg__white{% endif %}">
+      <div class="footer container">
+        <h2 class="c__marquee js-marquee">Take Eight. Sleep Deep. Level Up.</h2>
+        <div class="row justify-content-lg-between">
+          
+          <div class="col-lg-5 order-lg-2">
+            <!-- Newsletter -->
+            <form action="#" class="footer__newsletter">
+              <p>Subscribe to the newsletter</p>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <input type="text" placeholder="First name" name="fname">
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <input type="text" placeholder="Last name" name="lname">
+                </div>
+                <div class="col-md-6 pr-md-1">
+                  <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <input type="submit" value="Subscribe">
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="col-lg-4 order-lg-1">
+            <div class="footer__links">
+              {% for link in linklists.footer.links %}
+                <a class="link" href="{{ link.url }}">{{ link.title }}</a>
+              {% endfor %}
+            </div>
+            <div class="footer__logo">
+              <!-- <img src="{{ 'logo.svg' | asset_url }}" alt="Take Eight"> -->
+              <h4>Take</br>Eight</h4>
+            </div>
+            <p class="footer__copyright">&copy; Take Eight {{ 'now' | date: "%Y" }}</p>
+          </div>
+    
+        </div>
+      </div>
+    </footer>
   </main>
+
+  {% include 'footer-embed' %}
 </body>
 </html>

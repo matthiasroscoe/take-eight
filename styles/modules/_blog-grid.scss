@@ -1,0 +1,57 @@
+.blog-grid {
+
+    &__intro {
+        padding: 50px 30px 10px;
+        @include media-breakpoint-up(lg) {
+            padding: 120px 15px 30px;
+        }
+    }
+
+    &__line {
+        height: 1px;
+        width: 100%;
+        background-color: $white;
+    }
+
+    &__articles {
+        padding: 30px 15px 70px;
+
+        @include media-breakpoint-up(lg) {
+            padding: 70px 0px 90px;
+        }
+        
+        .article {
+            margin-bottom: 50px;
+            
+            img {
+                max-height: 230px;
+                margin-bottom: 20px;
+
+                @include media-breakpoint-up(lg) {
+                    height: 280px;
+                    max-height: 280px;
+                }
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+
+            .button {
+                display: inline-block;
+                font-size: 14px;
+                border: 1px solid $white;
+                background-color: $dark;
+                color: $white;
+                padding: 8px 16px;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: $dark;
+                    background-color: $white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

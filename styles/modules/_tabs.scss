@@ -1,0 +1,105 @@
+.tabs {
+
+    .row {
+        min-height: 450px;
+    }
+
+    &__tabs {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+    }
+    
+    &__tab {
+        flex: 1;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid $white;
+        padding: 20px 30px;
+        cursor: pointer;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0 10%;
+        }
+
+        &:last-of-type {
+            @include media-breakpoint-up(lg) {
+                border-bottom: none;
+            }
+        }
+
+        .text:after {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            transition: opacity ease 150ms;
+            right: -35px;
+            top: 4px;
+            width: 20px;
+            height: 15px;
+            background-image: url('eye--white.svg');
+            background-position: center;
+            background-size: 20px;
+            background-repeat: no-repeat;
+        }
+
+        &.active {
+            .text:after {
+                opacity: 1;
+            }
+        }
+            
+    }
+
+    &__content-wrap {
+        min-height: 400px;
+        @include media-breakpoint-up(lg) {
+            border-left: 1px solid $white;
+            min-height: none;
+        }
+    }
+
+    &__content {
+        opacity: 0;
+        visibility: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        @include media-breakpoint-up(lg) {
+            padding: 40px 120px;
+        }
+        
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($dark, .5);
+        }
+
+        .text {
+            position: relative;
+            max-width: 500px;
+            padding: 30px 30px 20px;
+            @include media-breakpoint-up(lg) {
+                padding: 0;
+                font-size: 21px;
+                line-height: 1.5;
+                letter-spacing: 2.5px;
+            }
+        }
+    }
+}

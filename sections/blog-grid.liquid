@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="blog-grid__intro col-lg-6">
+            {{ section.settings.intro }}
+        </div>
+    </div>
+</div>
+<div class="blog-grid__line"></div>
+<div class="container">
+    <div class="row blog-grid__articles">
+        {% for link in linklists.blogs.links %}
+            {% if link.handle contains 'news' %}
+                {% assign blog = link.object %}
+                {% for article in blog.articles %}
+
+                    <div class="col-lg-4 article">
+                        <a href="{{ article.url }}" class="d-block">
+                            <img class="d-block u__obj-fit" src="{{ article.image | img_url: '320x280' }}" alt="{{ article.image.alt }}">
+                        </a>
+                        <p>{{ article.title }}</p>
+                        <a class="button" href="{{ article.url }}">Read more</a>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Blog Grid",
+        "class": "blog-grid bg__dark",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "intro",
+                "label": "Introduction"
+            }
+        ],
+        "presets": [
+            {
+                "category": "Blog Content",
+                "name": "Blog Grid"
+            }
+        ]
+    }
+{% endschema %}

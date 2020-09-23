@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+    <div class="c__prlx-wrap">
+        <img class="c__prlx-img u__obj-fit js-prlx-img" src="{{ section.settings.image | img_url: '1200x600' }}" alt="{{ article.title }}">
+    </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Page Hero",
+    "class": "article__image container",
+    "tag": "div",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "category": "Page Content",
+            "name":"Page Hero"
+        }
+    ]
+}
+{% endschema %}

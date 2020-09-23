@@ -1,5 +1,17 @@
 body {
     font-family: $sans;
     color: $dark;
-    background: $white;
+    // background: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    overflow: hidden;
+}
+
+.container {
+    @include media-breakpoint-down(md) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

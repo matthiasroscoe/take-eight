@@ -1,0 +1,12 @@
+.template-page {
+    .hw-imgtxt {
+        border-top: 1px solid $dark;
+
+        &__text {
+            @include media-breakpoint-up(lg) {
+                padding-bottom: 120px;
+                padding-top: 80px;
+            }
+        }
+    }
+}

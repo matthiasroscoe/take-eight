@@ -1,0 +1,15 @@
+.c__prlx-wrap {
+    overflow: hidden;
+    position: relative;
+    min-height: 300px;
+    height: 100%;
+
+    .c__prlx-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 115%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

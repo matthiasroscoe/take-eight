@@ -1,0 +1,39 @@
+.article {
+
+    &__image {
+        margin-top: 30px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 60px;
+        }
+
+        .c__prlx-wrap {
+            min-height: 280px;
+
+            @include media-breakpoint-up(lg) {
+                min-height: 420px;
+            }
+        }
+    }
+
+    &__content {
+        padding-top: 40px;
+        padding-bottom: 50px;
+        @include media-breakpoint-up(lg) {
+            padding-top: 60px;
+            padding-bottom: 80px;
+        }
+    }
+}
+
+.template-article {
+    .hw-imgtxt {
+        border-top: 1px solid $dark;
+
+        &__text {
+            @include media-breakpoint-up(lg) {
+                padding-bottom: 120px;
+                padding-top: 80px;
+            }
+        }
+    }
+}

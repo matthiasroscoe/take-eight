@@ -1,5 +1,46 @@
 .hw-imgtxt {
-    background-color: $dark;
-    color: $white;
-    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid $dark;
+    
+    @include media-breakpoint-up(lg) {
+        min-height: 530px;
+    }
+
+    .c__prlx-wrap {
+        @include media-breakpoint-up(lg) {
+            min-height: 530px;
+        }
+    }
+
+    &__text {
+        padding: 50px 30px;
+        @include media-breakpoint-up(lg) {
+            min-height: 530px;
+            padding: 50px 150px 50px 50px;
+        }
+    }
+
+    &__text-inner {
+        max-width: 400px;
+        @include media-breakpoint-up(lg) {
+            margin-left: auto;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+        
+        p {
+            max-width: 90%;
+
+            @include media-breakpoint-up(lg) {
+                max-width: 80%;
+            }
+        }
+    }
+
+    .arrow {
+        margin-top: 30px;
+    }
 }

@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="tabs__tabs d-flex col-lg-4 px-0">
+            {% for block in section.blocks %}
+                <div class="tabs__tab js-tab d-flex{% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}">
+                    <p class="text d-inline-block pos-rel mb-0">{{ block.settings.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="tabs__content-wrap pos-rel col-lg-8 px-0">
+            {% for block in section.blocks %}
+                <div class="tabs__content js-tab-content d-flex flex-column align-items-start justify-content-center {% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}" style="background-image: url('{{ block.settings.image | img_url: '1200x600' }}')">
+                    <div class="text">{{ block.settings.text }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Tabs",
+    "class": "tabs bg__dark",
+    "tag": "section",
+    "blocks": [
+        {
+            "type": "select",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Tab Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Tab Content"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Background Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Custom Content",
+            "name": "Tabs",
+            "blocks": [
+                { 
+                    "type": "select"
+                },
+                {
+                    "type": "select"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

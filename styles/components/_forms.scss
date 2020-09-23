@@ -1,0 +1,32 @@
+input[type=text],
+input[type=number],
+input[type=email] {
+    width: 100%;
+    border: 1px solid rgba($dark, .5);
+    font-size: 14px;
+    border-radius: 0;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    
+    &:focus, &:active, &:hover {
+        border-color: $dark;
+    }
+}
+
+input[type=submit] {
+    width: 100%;
+    border: 1px solid rgba($dark, .5);
+    border-radius: 0;
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: $dark;
+    color: $white;
+
+    &:hover {
+        background: $white;
+        color: $black;
+    }
+}

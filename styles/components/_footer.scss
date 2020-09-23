@@ -1,0 +1,58 @@
+footer {
+    padding: 100px 15px 12px;
+
+    @include media-breakpoint-up(lg) {
+        padding: 140px 0 45px;
+    }
+
+    .footer {
+
+        &__newsletter {
+            margin-bottom: 50px;
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 0;
+            }
+
+            p {
+                text-transform: uppercase;
+            }
+        }
+        
+        &__links {
+    
+            .link {
+                display: inline-block;
+                margin: 0 40px 10px 0;
+                text-transform: uppercase;
+                font-weight: 400;
+                font-size: 14px;
+                color: $dark;
+                transition: all linear 100ms;
+
+                @include media-breakpoint-up(lg) {
+                    margin-right: 30px;
+                }
+    
+                &:hover {
+                    text-decoration: none;
+                    opacity: .6;
+                }
+            }
+        }
+    
+        &__logo {
+            margin-top: 40px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 20px;
+            }
+        }
+    
+        &__copyright {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+    }
+}

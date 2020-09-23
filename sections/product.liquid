@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row pos-rel">
+        <div class="product__img col-lg-6 px-0">
+            <img class="u__obj-fit" src="{{ section.settings.image | img_url: '600x600' }}" alt="{{ section.settings.image.alt }}">
+        </div>
+        <div class="product__text d-flex-center flex-column align-items-start col-lg-6">
+            <div class="product__text-inner">
+                <p class="c__label">{{ section.settings.label }}</p>
+                <h2>{{ section.settings.title }}</h2>
+                {{ section.settings.text }}
+                <a href="{{ all_products[section.settings.product].url }}" class="c__btn">Shop Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Product",
+        "class": "product",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "product",
+                "id": "product",
+                "label": "Product"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "Label"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Copy"
+            }
+        ],
+        "presets": [
+            {
+                "category": "Product Content",
+                "name":"Product"
+            }
+        ]
+    }
+{% endschema %}

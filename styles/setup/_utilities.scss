@@ -1,0 +1,35 @@
+// Display classes
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+// Positioning classes
+.pos-abs {
+    position: absolute;
+}
+.pos-rel {
+    position: relative;
+}
+.u__obj-fit {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+// Background classes
+.bg__dark {
+    background-color: $dark;
+    color: $white;
+}
+.bg__light {
+    background-color: $light;
+    color: $dark;
+}
+.bg__white {
+    background-color: $white;
+    color: $dark;
+}

@@ -1,0 +1,88 @@
+{% if section.settings.colour == 'dark' %}
+    {% assign colour = 'bg__dark' %}
+{% elsif section.settings.colour == 'white' %}
+    {% assign colour = 'bg__white' %}
+{% else %}
+    {% assign colour = 'bg__light' %}
+{% endif %}
+
+<div class="container-fluid {{ colour }}">
+    <div class="row pos-rel">
+        <div class="hw-imgtxt__text d-flex-center flex-column align-items-start col-lg-6">
+            <div class="hw-imgtxt__text-inner">
+                <h1>{{ section.settings.title }}</h1>
+                {{ section.settings.text }}
+                {% if section.settings.show_arrow == true %}
+                    <img class="arrow" src="{{ 'arrow--white.svg' | asset_url }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="hw-imgtxt__img col-lg-6 px-0{% if section.settings.show_image_on_mobile == false %} d-none d-lg-block{% else %} d-block{% endif %}">
+            <div class="c__prlx-wrap">
+                <img class="c__prlx-img u__obj-fit js-prlx-img" src="{{ section.settings.image | img_url: '600x600' }}" alt="{{ section.settings.image.alt }}" loading="lazy">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Image & Text (Half-Width)",
+        "class": "hw-imgtxt",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "radio",
+                "id": "colour",
+                "label": "Background",
+                "options": [
+                    {
+                        "value": "dark", 
+                        "label": "Dark"
+                    },
+                    {
+                        "value": "white", 
+                        "label": "White"
+                    },
+                    {
+                        "value": "light", 
+                        "label": "Light Grey"
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Content"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_arrow",
+                "label": "Show arrow?",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "show_image_on_mobile",
+                "label": "Show image on mobile?",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "category": "Custom Content",
+                "name":"Image & Text (Half-Width)"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,38 @@
+.c__label {
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 4px 3px 4px 4px;
+    background: $dark;
+    color: $white;
+    display: inline-block;
+    margin-bottom: 30px;
+
+    &--large {
+        font-size: 14px;
+        padding: 6px 5px 6px 6px;
+    }
+}
+
+.c__marquee {
+    position: absolute;
+    width: 500vw;
+    left: -100px;
+    top: -38px;
+    font-size: 75px;
+    line-height: 1;
+    letter-spacing: 7px;
+    color: $white;
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+    margin-bottom: 0;
+    
+    @include media-breakpoint-up(md) {
+        font-size: 90px;
+        top: -46px;
+    }
+    @include media-breakpoint-up(lg) {
+        top: -71px;
+        font-size: 140px;
+    }
+}
