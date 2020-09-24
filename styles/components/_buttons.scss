@@ -1,6 +1,7 @@
 .c__btn {
     padding: 10px 70px 10px 25px;
     border: 1px solid $dark;
+    border-radius: 3px;
     background: $white;
     color: $dark;
     position: relative;
@@ -29,10 +30,23 @@
 
     &:hover {
         text-decoration: none;
-        color: $dark;
+        color: inherit;
 
         &:after {
             right: 25px;
+        }
+    }
+
+    &--dark {
+        background: $dark;
+        color: $white;
+
+        &:after {
+            background-image: url('arrow-small--white.svg');
+        }
+
+        &:hover {
+            color: $white;
         }
     }
 }

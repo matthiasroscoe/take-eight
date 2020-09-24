@@ -8,7 +8,7 @@
 
 <div class="container-fluid {{ colour }}">
     <div class="row pos-rel">
-        <div class="hw-imgtxt__text d-flex-center flex-column align-items-start col-lg-6">
+        <div class="hw-imgtxt__text d-flex-center flex-column align-items-start col-md-6">
             <div class="hw-imgtxt__text-inner">
                 <h1>{{ section.settings.title }}</h1>
                 {{ section.settings.text }}
@@ -17,7 +17,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="hw-imgtxt__img col-lg-6 px-0{% if section.settings.show_image_on_mobile == false %} d-none d-lg-block{% else %} d-block{% endif %}">
+        <div class="hw-imgtxt__img col-md-6 px-0{% if section.settings.show_image_on_mobile == false %} d-none d-md-block{% else %} d-block{% endif %}">
             <div class="c__prlx-wrap">
                 <img class="c__prlx-img u__obj-fit js-prlx-img" src="{{ section.settings.image | img_url: '600x600' }}" alt="{{ section.settings.image.alt }}" loading="lazy">
             </div>

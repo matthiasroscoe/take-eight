@@ -27,7 +27,7 @@
                 max-height: 230px;
                 margin-bottom: 20px;
 
-                @include media-breakpoint-up(lg) {
+                @include media-breakpoint-up(md) {
                     height: 280px;
                     max-height: 280px;
                 }
@@ -41,6 +41,7 @@
                 display: inline-block;
                 font-size: 14px;
                 border: 1px solid $white;
+                border-radius: 3px;
                 background-color: $dark;
                 color: $white;
                 padding: 8px 16px;

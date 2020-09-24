@@ -2,6 +2,8 @@
 
     function init() {
         tabs();
+        marqueeText();
+        parallaxImages();
     }
 
     /**
@@ -9,8 +11,7 @@
      */
     
     function tabs() {
-
-        jQuery('.js-tab').on('mouseover', function(e) {
+        $('.js-tab').on('mouseover', function(e) {
             const index = $(this).data('index');
             $('.js-tab').removeClass('active');
             $(this).addClass('active');
@@ -18,7 +19,58 @@
             $('.js-tab-content').removeClass('active');
             $(`.js-tab-content[data-index="${index}"]`).addClass('active');
         })
+    }
 
+
+    /**
+     * Parallax Images
+     */
+
+    function parallaxImages() {
+        if ( $('.js-prlx-img').length ) {
+            // Load scrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Iterate over array of images and perform animation
+            gsap.utils.toArray('.js-prlx-img').forEach(prlxItem => { 
+                gsap.fromTo(prlxItem, {
+                    y: '0%'
+                }, {
+                    y: '-25%',
+                    ease: 'linear',
+                    scrollTrigger: {
+                        trigger: prlxItem,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 0,
+                    }
+                })
+            });
+        }
+    }
+
+
+    /**
+     * Marquee text
+     */
+    function marqueeText() {
+        if ( $('.js-marquee').length ) {
+
+            // Load scrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+      
+            gsap.utils.toArray('.js-marquee').forEach(prlxItem => { 
+                gsap.to(prlxItem, {
+                    x: -150,
+                    scrollTrigger: {
+                        trigger: prlxItem,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 0,
+                    }
+                })
+            });
+        }
     }
 
 

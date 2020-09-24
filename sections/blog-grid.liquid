@@ -13,7 +13,7 @@
                 {% assign blog = link.object %}
                 {% for article in blog.articles %}
 
-                    <div class="col-lg-4 article">
+                    <div class="col-md-6 col-lg-4 article">
                         <a href="{{ article.url }}" class="d-block">
                             <img class="d-block u__obj-fit" src="{{ article.image | img_url: '320x280' }}" alt="{{ article.image.alt }}">
                         </a>
