@@ -3,6 +3,10 @@ body {
     color: $dark;
     // background: #f5f5f5;
     -webkit-font-smoothing: antialiased;
+
+    &.is-fixed {
+        overflow: hidden;
+    }
 }
 
 main {

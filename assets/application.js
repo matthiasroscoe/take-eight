@@ -1,10 +1,26 @@
 (function() {
 
     function init() {
+        toggleNav();
         tabs();
         marqueeText();
         parallaxImages();
     }
+
+    /**
+     * Toggle Navigation Overlay
+     */
+
+    function toggleNav() {
+        $('.js-toggle-nav').click(function(e) {
+            e.preventDefault();
+
+            $('.nav').toggleClass('is-active');
+            $('body').toggleClass('is-fixed');
+        })
+    }
+
+
 
     /**
      * Tabs section

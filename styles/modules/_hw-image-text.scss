@@ -17,12 +17,12 @@
         padding: 50px 30px;
         @include media-breakpoint-up(lg) {
             min-height: 530px;
-            padding: 50px 150px 50px 50px;
+            padding: 50px 130px 50px 50px;
         }
     }
 
     &__text-inner {
-        max-width: 400px;
+        max-width: 430px;
         @include media-breakpoint-up(lg) {
             margin-left: auto;
         }
@@ -36,6 +36,7 @@
 
             @include media-breakpoint-up(lg) {
                 max-width: 80%;
+                font-size: 21px;
             }
         }
     }

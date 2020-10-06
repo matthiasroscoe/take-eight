@@ -1,9 +1,0 @@
-.template-index {
-    .hw-imgtxt {
-        h1 {
-            @include media-breakpoint-up(lg) {
-                font-size: 52px;
-            }
-        }
-    }
-}
