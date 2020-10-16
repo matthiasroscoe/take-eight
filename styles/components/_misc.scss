@@ -22,6 +22,7 @@
     font-size: 75px;
     line-height: 1;
     letter-spacing: 7px;
+    // color: #dedede;
     color: $white;
     text-transform: uppercase;
     mix-blend-mode: difference;
@@ -34,5 +35,35 @@
     @include media-breakpoint-up(lg) {
         top: -58px;
         font-size: 116px;
+    }
+}
+
+
+.c__plus-minus {
+    width: 20px;
+    height: 20px;
+    position: relative;
+
+    .line {
+        width: 2px;
+        height: 20px;
+        background: $white;
+        top: 0px;
+        left: 9px;
+        position: absolute;
+        transition: all ease 200ms;
+
+        .is-active & {
+            height: 0px;
+        }
+    }
+
+    .line--2 {
+        width: 20px;
+        height: 2px;
+        top: 9px;
+        left: 0px;
+        position: absolute;
+        background: $white;
     }
 }

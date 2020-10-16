@@ -1,0 +1,60 @@
+<div class="faqs container">
+    <div class="row justify-content-lg-center">
+        <div class="col-lg-8">
+            {% for block in section.blocks %}
+                <div class="faqs__outer">
+                    <div class="faqs__title">
+                        <h3>{{ block.settings.question }}</h3>
+                        <div class="c__plus-minus">
+                            <span class="line"></span>
+                            <span class="line line--2"></span>
+                        </div>
+                    </div>
+                    <div class="faqs__answer">
+                        {{ block.settings.answer }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "FAQs",
+    "class": "faqs",
+    "tag": "div",
+    "blocks": [
+        {
+            "type": "select",
+            "name": "FAQs",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Custom Content",
+            "name": "FAQs",
+            "blocks": [
+                { 
+                    "type": "select"
+                },
+                {
+                    "type": "select"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
