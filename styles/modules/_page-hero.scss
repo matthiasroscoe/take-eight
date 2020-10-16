@@ -1,0 +1,14 @@
+.page-hero {
+
+    .c__prlx-wrap {
+        min-height: 280px;
+
+        @include media-breakpoint-up(md) {
+            min-height: 400px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            min-height: 450px;
+        }
+    }
+}

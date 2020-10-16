@@ -1,22 +1,32 @@
-{% paginate blog.articles by 5 %}
-
-<h1>{{ blog.title }}</h1>
-{% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-      {% endif %}
-    </div>
+<!-- {% paginate blog.articles by 5 %} -->
+<div class="container">
+  <div class="row">
+      <div class="blog-grid__intro col-lg-6">
+          <h1 class="large">{{ blog.title }}</h1>
+      </div>
   </div>
-{% endfor %}
+</div>
+<div class="container">
+  <div class="row blog-grid__articles">
+    {% for article in blog.articles %}
+      <div class="col-md-4 article">
+          <a href="{{ article.url }}" class="d-block">
+              <img class="d-block u__obj-fit" src="{{ article.image | img_url: '320x280' }}" alt="{{ article.image.alt }}">
+          </a>
+          <p>{{ article.title }}</p>
+          {% if article.excerpt.size > 0 %}
+            {{ article.excerpt }}
+          {% else %}
+            <p>{{ article.content | strip_html | truncatewords: 25 }}</p>
+          {% endif %}
+          <a class="button button--border-dark" href="{{ article.url }}">Read more</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
-{% if paginate.pages > 1 %}
+<!-- {% if paginate.pages > 1 %}
   {{ paginate | default_pagination }}
-{% endif %}
+{% endif %} -->
 
 {% endpaginate %}

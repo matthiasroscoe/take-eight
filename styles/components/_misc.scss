@@ -22,7 +22,7 @@
     font-size: 75px;
     line-height: 1;
     letter-spacing: 7px;
-    color: #dedede;
+    color: $white;
     text-transform: uppercase;
     mix-blend-mode: difference;
     margin-bottom: 0;
@@ -34,6 +34,12 @@
     @include media-breakpoint-up(lg) {
         top: -58px;
         font-size: 116px;
+    }
+
+    .template-pagefaqs &,
+    .template-blog {
+        color: $dark;
+        mix-blend-mode: inherit;
     }
 }
 

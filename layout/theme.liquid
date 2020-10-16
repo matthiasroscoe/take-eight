@@ -14,7 +14,7 @@
     {{ 'application.scss.css' | asset_url | stylesheet_tag }}
 
 </head>
-<body class="template-{{ template }}">
+<body class="template-{{ template | split: '.' }}">
 
   <header>
     <div class="header container pos-rel">
