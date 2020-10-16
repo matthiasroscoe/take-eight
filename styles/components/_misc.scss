@@ -22,8 +22,7 @@
     font-size: 75px;
     line-height: 1;
     letter-spacing: 7px;
-    // color: #dedede;
-    color: $white;
+    color: #dedede;
     text-transform: uppercase;
     mix-blend-mode: difference;
     margin-bottom: 0;
@@ -44,10 +43,10 @@
     height: 20px;
     position: relative;
 
-    .line {
+    .line-1 {
         width: 2px;
         height: 20px;
-        background: $white;
+        background: $dark;
         top: 0px;
         left: 9px;
         position: absolute;
@@ -58,12 +57,12 @@
         }
     }
 
-    .line--2 {
+    .line-2 {
         width: 20px;
         height: 2px;
         top: 9px;
         left: 0px;
         position: absolute;
-        background: $white;
+        background: $dark;
     }
 }

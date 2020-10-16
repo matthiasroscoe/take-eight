@@ -96,6 +96,7 @@
     function faqs() {
         $('.faqs__title').click(function() {
             $(this).next().slideToggle('slow');
+            $(this).toggleClass('is-active');
         })
     }
 
