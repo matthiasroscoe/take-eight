@@ -1,0 +1,12 @@
+.template-index {
+    .hw-imgtxt {
+        @include media-breakpoint-up(lg) {
+            height: calc(100vh - 109px);
+            min-height: 500px;
+            &__text {
+                height: calc(100vh - 109px);
+                min-height: 500px;
+            }
+        }
+    }
+}

@@ -6,12 +6,18 @@
     {% assign colour = 'bg__light' %}
 {% endif %}
 
-<div class="container-fluid {{ colour }}">
+<div class="container-fluid {{ colour }} {% if section.settings.show_bottom_border == false %}no-border{% endif %}">
     <div class="row pos-rel">
         <div class="hw-imgtxt__text d-flex-center flex-column align-items-start col-md-6">
             <div class="hw-imgtxt__text-inner">
-                <h1 class="large">{{ section.settings.title }}</h1>
+                {% if template == 'product' %}
+                    <h2 class="mb-4">{{ section.settings.title }}</h2>
+                {% else %}
+                    <h1 class="large">{{ section.settings.title }}</h1>
+                {% endif %}
+
                 {{ section.settings.text }}
+                
                 {% if section.settings.show_arrow == true %}
                     <img class="arrow" src="{{ 'arrow--white.svg' | asset_url }}">
                 {% endif %}
@@ -76,6 +82,12 @@
                 "id": "show_image_on_mobile",
                 "label": "Show image on mobile?",
                 "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "show_bottom_border",
+                "label": "Include bottom border?",
+                "default": true
             }
         ],
         "presets": [

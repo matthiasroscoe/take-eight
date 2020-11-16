@@ -1,8 +1,22 @@
 header {
     border-bottom: 1px solid $dark;
+
+    .topbar {
+        background: $light;
+        border-bottom: 1px solid #eee;
+        color: $dark;
+        padding: 4px 20px 3px;
+        
+        p {
+            font-size: 12px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
     
     .header {
-        padding: 10px 15px;
+        padding: 17px 15px;
+        overflow: hidden;
     
         >.row {
             justify-content: space-between;
@@ -54,9 +68,9 @@ header {
         }
     
         &__logo {
-            top: 50%;
+            top: 9px;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translateX(-50%);
             color: $dark;
     
             font-size: 18px;
@@ -68,6 +82,11 @@ header {
             &:hover {
                 text-decoration: none;
                 color: $dark;
+            }
+
+            img {
+                width: 90px;
+                height: auto;
             }
         }
     
@@ -100,8 +119,12 @@ header {
     
             &:hover {
                 text-decoration: none;
-
+                .text {
+                    text-decoration: underline;
+                    text-decoration-color: $dark;
+                }
                 .count {
+                    text-decoration: none;
                     background-color: $dark;
                     color: $white;
                 }

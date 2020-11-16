@@ -8,7 +8,7 @@
             <div class="product__text-inner">
                 <p class="c__label c__label--large">{{ product.selected_or_first_available_variant.price | money }}</p>
                 <h2>{{ product.title }}</h2>
-                {{ product.description }}
+                <p>{{ product.description }}</p>
                 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
                   <input name="id" value="{{ product.selected_or_first_available_variant.id }}" type="hidden" />
                   <button class="c__btn" type="submit" name="add" id="AddToCart">Add to cart</button>

@@ -1,22 +1,28 @@
 .hw-imgtxt {
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid $dark;
+
+    .container-fluid {
+        border-bottom: 1px solid $dark;
+        &.no-border {
+            border-bottom: none;
+        }
+    }
     
     @include media-breakpoint-up(lg) {
-        min-height: 530px;
+        min-height: 600px;
     }
 
     .c__prlx-wrap {
         @include media-breakpoint-up(lg) {
-            min-height: 530px;
+            min-height: 600px;
         }
     }
 
     &__text {
         padding: 50px 30px;
         @include media-breakpoint-up(lg) {
-            min-height: 530px;
+            min-height: 600px;
             padding: 50px 130px 50px 50px;
         }
     }

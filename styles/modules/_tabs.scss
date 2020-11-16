@@ -1,7 +1,8 @@
 .tabs {
+    border-bottom: 1px solid $white;
 
     .row {
-        min-height: 450px;
+        min-height: 575px;
     }
 
     &__tabs {

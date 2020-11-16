@@ -6,13 +6,13 @@
         max-height: 400px;
 
         @include media-breakpoint-up(lg) {
-            max-height: 530px;
+            max-height: 560px;
             
         }
         img {
             max-height: 400px;
             @include media-breakpoint-up(lg) {
-                max-height: 530px;
+                max-height: 560px;
             }
         }
         

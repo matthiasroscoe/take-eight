@@ -37,7 +37,7 @@
     }
 
     .template-pagefaqs &,
-    .template-blog {
+    .template-blog & {
         color: $dark;
         mix-blend-mode: inherit;
     }
@@ -51,10 +51,10 @@
 
     .line-1 {
         width: 2px;
-        height: 20px;
+        height: 18px;
         background: $dark;
         top: 0px;
-        left: 9px;
+        left: 8px;
         position: absolute;
         transition: all ease 200ms;
 
@@ -64,9 +64,9 @@
     }
 
     .line-2 {
-        width: 20px;
+        width: 18px;
         height: 2px;
-        top: 9px;
+        top: 8px;
         left: 0px;
         position: absolute;
         background: $dark;

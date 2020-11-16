@@ -5,7 +5,6 @@ textarea {
     width: 100%;
     border: 1px solid rgba($dark, .5);
     font-size: 14px;
-    border-radius: 3px;
     padding: 11px 12px;
     margin-bottom: 10px;
     
@@ -17,7 +16,6 @@ textarea {
 input[type=submit] {
     width: 100%;
     border: 1px solid rgba($dark, .5);
-    border-radius: 3px;
     padding: 11px 12px;
     font-size: 14px;
     font-weight: 400;
@@ -25,9 +23,18 @@ input[type=submit] {
     text-transform: uppercase;
     background: $dark;
     color: $white;
+    transition: all ease 200ms;
 
     &:hover {
         background: $white;
         color: $black;
     }
+}
+
+// Recaptcha check
+.shopify-challenge__container form {
+    padding-bottom: 125px;
+}
+.shopify-challenge__message {
+    padding-top: 125px;
 }

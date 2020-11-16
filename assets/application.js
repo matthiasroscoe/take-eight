@@ -6,6 +6,7 @@
         marqueeText();
         parallaxImages();
         faqs();
+        cartAutoUpdate();
     }
 
     /**
@@ -95,8 +96,19 @@
      */
     function faqs() {
         $('.faqs__title').click(function() {
-            $(this).next().slideToggle('slow');
+            $(this).next().slideToggle(400);
             $(this).toggleClass('is-active');
+        })
+    }
+
+
+    /**
+     * Cart auto update on quantity change
+     */
+
+    function cartAutoUpdate() {
+        $('.js-quantity').on('change', function() {
+            $('.js-cart-update').trigger('click');
         })
     }
 

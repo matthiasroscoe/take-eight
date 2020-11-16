@@ -1,5 +1,5 @@
 .nav {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -11,15 +11,20 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    transition: all ease-in-out 800ms;
+    // transition: opacity visibility ease-in-out 800ms;
 
     &.is-active {
+        display: flex;
         opacity: 1;
         visibility: visible;
     }
 
     &__top {
         padding: 10px 15px;
+        
+        @include media-breakpoint-up(lg) {
+            padding: 43px 15px 10px;
+        }
 
         >.row {
             justify-content: space-between;
