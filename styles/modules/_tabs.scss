@@ -2,7 +2,7 @@
     border-bottom: 1px solid $white;
 
     .row {
-        min-height: 575px;
+        min-height: 620px;
     }
 
     &__tabs {
@@ -53,7 +53,11 @@
     }
 
     &__content-wrap {
-        min-height: 400px;
+        min-height: 430px;
+        &.is-extended {
+            min-height: 680px;
+        }
+
         @include media-breakpoint-up(lg) {
             border-left: 1px solid $white;
             min-height: none;
@@ -88,18 +92,59 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba($dark, .5);
+            background: rgba($dark, .6);
         }
 
         .text {
             position: relative;
-            max-width: 500px;
+            max-width: 600px;
             padding: 30px 30px 20px;
             @include media-breakpoint-up(lg) {
                 padding: 0;
                 font-size: 21px;
                 line-height: 1.5;
                 letter-spacing: 2.5px;
+            }
+        }
+
+        .list {
+            position: relative;
+            align-items: stretch;
+            flex-wrap: wrap;
+            margin: 0 30px;
+
+            @include media-breakpoint-up(md) {
+                align-items: center;
+                padding: 15px 15px 5px;
+                border: 1px solid white;
+                border-radius: 15px;
+            }
+            
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+            }
+            
+            p {
+                flex: 0 0 100%;
+                margin-bottom: 10px;
+                color: $white;
+                padding-left: 15px;
+                position: relative;
+
+                @include media-breakpoint-up(md) {
+                    flex: 0 0 50%;
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 9px;
+                    width: 5px;
+                    height: 5px;
+                    border: 1px solid $white;
+                    border-radius: 50%;
+                }
             }
         }
     }

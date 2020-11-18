@@ -86,15 +86,16 @@
             </form>
           </div>
           
-          <div class="col-lg-4 order-lg-1">
+          <div class="col-lg-5 order-lg-1">
             <div class="footer__links">
               {% for link in linklists.footer.links %}
                 <a class="link" href="{{ link.url }}">{{ link.title }}</a>
               {% endfor %}
             </div>
             <div class="footer__logo">
-              <!-- <img src="{{ 'logo.svg' | asset_url }}" alt="Take Eight"> -->
-              <h4>Take</br>Eight</h4>
+              <a href="/" title="Take Eight">
+                <img src="{{ 'logo-oval.png' | asset_url }}" alt="Take Eight">
+              </a>
             </div>
             <p class="footer__copyright">&copy; Take Eight {{ 'now' | date: "%Y" }}</p>
           </div>

@@ -13,6 +13,11 @@
             {% for block in section.blocks %}
                 <div class="tabs__content js-tab-content d-flex flex-column align-items-start justify-content-center {% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}" style="background-image: url('{{ block.settings.image | img_url: '1200x600' }}')">
                     <div class="text">{{ block.settings.text }}</div>
+                    {% if block.settings.list != '' %}
+                        <div class="list d-flex flex-column flex-md-row">
+                            {{ block.settings.list}}
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
@@ -43,6 +48,11 @@
                     "type": "image_picker",
                     "id": "image",
                     "label": "Background Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "list",
+                    "label": "List Items"
                 }
             ]
         }

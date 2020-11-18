@@ -46,6 +46,11 @@ footer {
             @include media-breakpoint-up(lg) {
                 margin-top: 20px;
             }
+
+            img {
+                max-width: 100px;
+                margin-bottom: 5px;
+            }
         }
     
         &__copyright {

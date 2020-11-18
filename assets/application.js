@@ -36,6 +36,13 @@
     
             $('.js-tab-content').removeClass('active');
             $(`.js-tab-content[data-index="${index}"]`).addClass('active');
+
+            // Increase height of tab content panel for ingredients pane on mobile
+            if (index == 2 && $(window).innerWidth() < 768) {
+                $('.tabs__content-wrap').addClass('is-extended');
+            } else {
+                $('.tabs__content-wrap').removeClass('is-extended');
+            }
         })
     }
 
