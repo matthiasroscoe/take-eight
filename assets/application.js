@@ -7,7 +7,45 @@
         parallaxImages();
         faqs();
         cartAutoUpdate();
+        productGallery();
+        slickNavigation();
     }
+
+
+    /**
+     * Product Gallery Slider
+     */
+
+    function productGallery() {
+        if ( $('.js-product-images').length ) {
+            $('.js-product-images').slick({
+                arrows: false,
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                autoPlaySpeed: 4000,
+            })
+        }
+    }
+
+
+    /**
+     * Slick navigation
+     */
+
+    function slickNavigation() {
+        $('.js-slick-next').on('click', function(e) {
+            console.log('testse');
+            e.preventDefault();
+            $(this).closest('.slick-wrap').find('.slick-initialized').slick('slickNext');
+        })
+        $('.js-slick-prev').on('click', function(e) {
+            console.log('testse');
+            e.preventDefault();
+            $(this).closest('.slick-wrap').find('.slick-initialized').slick('slickPrev');
+        })
+    }
+
 
     /**
      * Toggle Navigation Overlay

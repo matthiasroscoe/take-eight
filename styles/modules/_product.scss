@@ -1,21 +1,111 @@
 .product {
 
     &__img {
-        overflow: hidden;
+        position: relative;
         border-right: 1px solid $dark;
-        max-height: 400px;
-
+        height: 400px;
         @include media-breakpoint-up(lg) {
-            max-height: 560px;
-            
+            height: 560px;
         }
-        img {
-            max-height: 400px;
-            @include media-breakpoint-up(lg) {
-                max-height: 560px;
+
+        .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 38px);
+            object-fit: cover;
+        }
+
+        .js-product-images {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity ease-in 400ms;
+
+            &.slick-initialized {
+                opacity: 1;
+            }
+
+            .slick-list, .slick-track {
+                height: 400px;
+                @include media-breakpoint-up(lg) {
+                    height: 560px;
+                }
+
+                .img {
+                    position: relative;
+                }
             }
         }
-        
+
+        &-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            padding: 10px 15px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: $dark;
+            color: $white;
+
+            .arrow {
+                width: 25px;
+                height: 25px;
+                position: relative;
+                display: block;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -1px;
+                    width: 100%;
+                    height: 100%;
+                    background: url('crescent--white.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 10px;
+                    top: 7px;
+                    width: 6px;
+                    height: 10px;
+                    background-image: url('crescent-arrow.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                &--left {
+                    &::before {
+                        left: 0;
+                    }
+                    &::after {
+                        background-image: url('crescent-arrow--reversed.svg');
+                    }
+                }
+
+                &:hover {
+                    &::before {
+                        animation-duration: 500ms;
+                        animation-timing-function: ease-in-out;
+                        animation-fill-mode: forwards;
+                        animation-name: rotate;
+                    }
+                }
+            }
+        }
     }
     
     &__text {

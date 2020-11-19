@@ -1,8 +1,23 @@
 <section class="product">
   <div class="container-fluid">
     <div class="row pos-rel">
-        <div class="product__img col-lg-6 px-0">
-            <img class="" src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ featured_image.alt | escape }}" id="Take Eight Product Image">
+        <div class="product__img slick-wrap col-lg-6 px-0">
+            {% if product.images.size > 1 %}
+              <div class="js-product-images">
+                {% for image in product.images %}
+                  <img class="img" src="{{ image | img_url: '600x600' }}" alt="{{ image.alt | escape }}">
+                {% endfor %}
+              </div>
+            {% else %}
+              {% for image in product.images %}
+                <img class="img" src="{{ image | img_url: '600x600' }}" alt="{{ image.alt | escape }}">
+              {% endfor %}
+            {% endif %}
+            <div class="product__img-nav">
+              <span class="arrow arrow--left js-slick-prev"></span>
+              <p class="text-center mb-0">1/{{ product.images.size }}</p>
+              <span class="arrow arrow--right js-slick-next"></span>
+            </div>
         </div>
         <div class="product__text d-flex-center flex-column align-items-start col-lg-6">
             <div class="product__text-inner">
