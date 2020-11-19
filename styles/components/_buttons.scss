@@ -1,52 +1,74 @@
 .c__btn {
-    padding: 10px 70px 10px 25px;
-    border: 1px solid $dark;
-    border-radius: 3px;
-    background: $white;
+    padding: 10px 50px 10px 16px;
+    border: 2px solid $dark;
+    background: $dark;
     color: $dark;
     position: relative;
     display: inline-block;
     transition: all ease 300ms;
-    font-size: 16px;
-    color: $dark;
+    font-size: 17px;
+    color: $white;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 
     &:after {
         content: '';
         position: absolute;
-        right: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 11px;
-        background-image: url('arrow-small--black.svg');
-        background-size: 20px;
+        z-index: 1;
+        right: 12px;
+        top: 9px;
+        width: 27px;
+        height: 28px;
+        background-image: url('crescent--white.svg');
+        background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
-        transition: right linear 100ms;
+        transform: rotate(0deg);
+        transition: all ease-in-out 100ms;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        right: 21px;
+        top: 18px;
+        width: 7px;
+        height: 10px;
+        background-image: url('crescent-arrow.svg');
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &--small {
+        padding: 0px 45px 0px 0px;
+        border: none;
+
+        &::after {
+            width: 22px;
+            height: 23px;
+            top: 0px;
+            right: 14px;
+        }
+
+        &::before {
+            width: 6px;
+            height: 9px;
+            top: 8px;
+        }
     }
 
     &:hover {
         text-decoration: none;
-        color: inherit;
-
-        &:after {
-            right: 25px;
-        }
-    }
-
-    &--dark {
-        background: $dark;
         color: $white;
 
         &:after {
-            background-image: url('arrow-small--white.svg');
-        }
-
-        &:hover {
-            color: $white;
+            animation-duration: 500ms;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-name: rotate;
         }
     }
 }

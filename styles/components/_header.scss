@@ -16,7 +16,6 @@ header {
     
     .header {
         padding: 17px 15px;
-        overflow: hidden;
     
         >.row {
             justify-content: space-between;
@@ -79,14 +78,46 @@ header {
             text-transform: uppercase;
             text-align: center;
 
-            &:hover {
-                text-decoration: none;
-                color: $dark;
-            }
-
             img {
                 width: 90px;
                 height: auto;
+            }
+
+            &--large {
+                top: 0;
+                width: 130px;
+                height: 130px;
+                padding: 10px 0 0;
+                border-radius: 50%;
+                background: $white;
+                z-index: 2;
+                box-shadow: -1px 3px 4px rgba(0,0,0,0.075);
+
+                img{
+                    width: 112px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
+            }
+
+            &--border {
+                top: 10px;
+                width: 140px;
+                height: 140px;
+                padding: 6px;
+                border-radius: 50%;
+                background: $white;
+                z-index: 2;
+                border: 1px solid;
+
+                img{
+                    width: 123px;
+                }
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
             }
         }
     
