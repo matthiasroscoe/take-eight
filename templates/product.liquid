@@ -1,7 +1,7 @@
 <section class="product">
   <div class="container-fluid">
     <div class="row pos-rel">
-        <div class="product__img slick-wrap col-lg-6 px-0">
+        <div class="product__img product__img--{{ template | split: '.' }} slick-wrap col-lg-6 px-0">
             {% if product.images.size > 1 %}
               <div class="js-product-images">
                 {% for image in product.images %}
@@ -15,7 +15,7 @@
             {% endif %}
             <div class="product__img-nav">
               <span class="arrow arrow--left js-slick-prev"></span>
-              <p class="text-center mb-0">1/{{ product.images.size }}</p>
+              <p class="text-center js-slide-index mb-0">1/{{ product.images.size }}</p>
               <span class="arrow arrow--right js-slick-next"></span>
             </div>
         </div>
@@ -24,10 +24,14 @@
                 <p class="c__label c__label--large">{{ product.selected_or_first_available_variant.price | money }}</p>
                 <h2>{{ product.title }}</h2>
                 <p>{{ product.description }}</p>
-                <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-                  <input name="id" value="{{ product.selected_or_first_available_variant.id }}" type="hidden" />
-                  <button class="c__btn" type="submit" name="add" id="AddToCart">Add to cart</button>
-                </form>
+                {% if product.available %}
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                    <input name="id" value="{{ product.selected_or_first_available_variant.id }}" type="hidden" />
+                    <button class="c__btn" type="submit" name="add" id="AddToCart">Add to cart</button>
+                  </form>
+                {% else %}
+                  <p class="product__out-of-stock">We're currently out of stock but check back for more soon.</p>
+                {% endif %}
             </div>
         </div>
     </div>

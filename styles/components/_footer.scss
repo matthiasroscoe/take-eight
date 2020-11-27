@@ -7,6 +7,45 @@ footer {
 
     .footer {
 
+        &__socials {
+            margin-bottom: 30px;
+
+            .ig-wrap {
+                .ig-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    border: 1px solid $dark;
+                    background: transparent;
+                    padding: 7px;
+                    width: 31px;
+                    height: 31px;
+    
+                    img {
+                        width: 100%;
+                        filter: invert(1);
+                    }
+                }
+
+                p {
+                    color: $dark;
+                }
+
+                &:hover {
+                    text-decoration: none;
+
+                    .ig-icon {
+                        background: $dark;
+                        
+                        img {
+                            filter: invert(0);
+                        }
+                    }
+                }
+            }
+        }
+
         &__newsletter {
             margin-bottom: 50px;
             @include media-breakpoint-up(lg) {

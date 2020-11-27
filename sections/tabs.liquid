@@ -14,8 +14,11 @@
                 <div class="tabs__content js-tab-content d-flex flex-column align-items-start justify-content-center {% if forloop.index == 1 %} active{% endif %}" data-index="{{ forloop.index }}" style="background-image: url('{{ block.settings.image | img_url: '1200x600' }}')">
                     <div class="text">{{ block.settings.text }}</div>
                     {% if block.settings.list != '' %}
-                        <div class="list d-flex flex-column flex-md-row">
-                            {{ block.settings.list}}
+                        <div class="list d-flex flex-column flex-md-row align-items-start">
+                            {% assign ingredients = block.settings.list | newline_to_br | split: '<br />' %}
+                            {% for item in ingredients %}
+                                {{ item }}
+                            {% endfor %}
                         </div>
                     {% endif %}
                 </div>

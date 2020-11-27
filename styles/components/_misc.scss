@@ -16,8 +16,8 @@
 
 .c__marquee {
     position: absolute;
-    width: 500vw;
-    left: -100px;
+    width: 800vw;
+    left: 0px;
     top: -38px;
     font-size: 75px;
     line-height: 1;
@@ -32,12 +32,13 @@
         top: -46px;
     }
     @include media-breakpoint-up(lg) {
-        top: -58px;
+        top: -56px;
         font-size: 116px;
     }
 
     .template-pagefaqs &,
-    .template-blog & {
+    .template-blog &,
+    .template-404 & {
         color: $dark;
         mix-blend-mode: inherit;
     }

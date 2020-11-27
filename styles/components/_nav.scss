@@ -7,6 +7,7 @@
     opacity: 0;
     visibility: hidden;
     position: fixed;
+    z-index: 5;
     top: 0;
     left: 0;
     width: 100vw;
@@ -20,11 +21,7 @@
     }
 
     &__top {
-        padding: 10px 15px;
-        
-        @include media-breakpoint-up(lg) {
-            padding: 43px 15px 10px;
-        }
+        padding: 43px 15px 10px;
 
         >.row {
             justify-content: space-between;
@@ -84,10 +81,12 @@
         justify-content: center;
         align-items: flex-start;
         height: 100%;
+        margin-top: -33px;
 
         @include media-breakpoint-up(md) {
             width: 30%;
             margin-left: 6%;
+            margin-top: -23px;
         }
 
         a {

@@ -14,7 +14,7 @@
                 {% for article in blog.articles %}
 
                     <div class="col-md-4 article">
-                        <a href="{{ article.url }}" class="d-block">
+                        <a href="{{ article.url }}" class="article__img-wrap d-block">
                             <img class="d-block u__obj-fit" src="{{ article.image | img_url: '320x280' }}" alt="{{ article.image.alt }}">
                         </a>
                         <p>{{ article.title }}</p>

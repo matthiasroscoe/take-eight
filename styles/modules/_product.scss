@@ -2,10 +2,10 @@
 
     &__img {
         position: relative;
-        border-right: 1px solid $dark;
         height: 400px;
         @include media-breakpoint-up(lg) {
-            height: 560px;
+            border-right: 1px solid $dark;
+            min-height: 545px;
         }
 
         .img {
@@ -13,8 +13,19 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: calc(100% - 38px);
+            height: 100%;
             object-fit: cover;
+        }
+
+        &--product {
+            @include media-breakpoint-up(lg) {
+                height: calc(100vh - 124px);
+                max-height: 700px;
+            }
+
+            .img {
+                height: calc(100% - 38px);
+            }
         }
 
         .js-product-images {
@@ -33,7 +44,9 @@
             .slick-list, .slick-track {
                 height: 400px;
                 @include media-breakpoint-up(lg) {
-                    height: 560px;
+                    min-height: 545px;
+                    height: calc(100vh - 124px);
+                    max-height: 700px;
                 }
 
                 .img {
@@ -123,5 +136,12 @@
         @include media-breakpoint-up(lg) {
             padding: 50px 50px 50px 100px;
         }
+    }
+
+    &__out-of-stock {
+        opacity: .5;
+        border: 1px solid $dark;
+        border-radius: 4px;
+        padding: 6px 10px;
     }
 }

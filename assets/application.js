@@ -18,13 +18,22 @@
 
     function productGallery() {
         if ( $('.js-product-images').length ) {
+            
+            // Init slider
             $('.js-product-images').slick({
                 arrows: false,
                 dots: false,
-                infinite: true,
+                // infinite: true,
                 autoplay: true,
                 autoPlaySpeed: 4000,
+            });
+            
+            // Slide counter
+            $('.js-product-images').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+                var i = nextSlide + 1;
+                $('.js-slide-index').text(i + '/' + slick.slideCount);
             })
+
         }
     }
 
@@ -35,12 +44,10 @@
 
     function slickNavigation() {
         $('.js-slick-next').on('click', function(e) {
-            console.log('testse');
             e.preventDefault();
             $(this).closest('.slick-wrap').find('.slick-initialized').slick('slickNext');
         })
         $('.js-slick-prev').on('click', function(e) {
-            console.log('testse');
             e.preventDefault();
             $(this).closest('.slick-wrap').find('.slick-initialized').slick('slickPrev');
         })
@@ -124,7 +131,7 @@
       
             gsap.utils.toArray('.js-marquee').forEach(prlxItem => { 
                 gsap.to(prlxItem, {
-                    x: -150,
+                    x: -300,
                     scrollTrigger: {
                         trigger: prlxItem,
                         start: "top bottom",

@@ -4,6 +4,7 @@ input[type=email],
 textarea {
     width: 100%;
     border: 1px solid rgba($dark, .5);
+    border-radius: 3px;
     font-size: 14px;
     padding: 11px 12px;
     margin-bottom: 10px;
@@ -16,6 +17,7 @@ textarea {
 input[type=submit] {
     width: 100%;
     border: 1px solid rgba($dark, .5);
+    border-radius: 3px;
     padding: 11px 12px;
     font-size: 14px;
     font-weight: 400;
@@ -26,7 +28,7 @@ input[type=submit] {
     transition: all ease 200ms;
 
     &:hover {
-        background: $white;
+        background: transparent;
         color: $black;
     }
 }
