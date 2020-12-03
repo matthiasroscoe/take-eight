@@ -127,7 +127,11 @@
 
     &__text-inner {
         padding: 50px 15px;
-        max-width: 480px;
+        max-width: 510px;
+
+        h2 {
+            text-transform: none;
+        }
         
         p:last-of-type {
             margin-bottom: 40px;

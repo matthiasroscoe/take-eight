@@ -15,5 +15,12 @@
                 height: calc(100vh - 109px);
             }
         }
+
+        h1 {
+            text-transform: uppercase;
+            @include media-breakpoint-up(md) {
+                letter-spacing: 3px;
+            }
+        }
     }
 }

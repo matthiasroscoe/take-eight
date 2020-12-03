@@ -46,18 +46,19 @@
     &--small {
         padding: 0px 45px 0px 0px;
         border: none;
+        font-size: 14px;
 
         &::after {
             width: 22px;
             height: 23px;
-            top: 0px;
+            top: -1px;
             right: 14px;
         }
 
         &::before {
             width: 6px;
             height: 9px;
-            top: 8px;
+            top: 7px;
         }
     }
 

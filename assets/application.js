@@ -8,7 +8,24 @@
         faqs();
         cartAutoUpdate();
         productGallery();
+        reviewsSlider();
         slickNavigation();
+    }
+
+
+    /**
+     * Reviews Slider
+     */
+
+    function reviewsSlider() {
+        if ( $('.js-reviews').length ) {
+            $('.js-reviews').slick({
+                arrows: false,
+                dots: true,
+                autoplay: true,
+                autoPlaySpeed: 4000,
+            });
+        }
     }
 
 

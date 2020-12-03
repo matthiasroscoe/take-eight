@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row pos-rel">
+        <div class="reviews__intro col-12">
+            {% if section.settings.title %}
+                <h2>{{ section.settings.title }}</h2>
+            {% endif %}
+        </div>
+        <div class="reviews__img-col col-lg-7">
+            <img src="{{ section.settings.image | img_url: '600x600' }}" alt="Take Eight Reviews">
+        </div>
+        <div class="reviews__text-col slick-wrap bg__light col-lg-5">
+            <div class="js-reviews">
+                {% for block in section.blocks %}
+                    <div class="review">
+                        <div class="review__text review__text--{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+                        <p class="review__name mb-0">- {{ block.settings.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Reviews",
+        "class": "reviews bg__dark",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background Image"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "select",
+                "name": "Review",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "name",
+                        "label": "Reviewer Name"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Review Text"
+                    },
+                    {
+                        "type": "radio",
+                        "id": "text_size",
+                        "label": "Text Size",
+                        "options": [
+                            {
+                                "value": "large", 
+                                "label": "Large"
+                            },
+                            {
+                                "value": "medium", 
+                                "label": "Medium"
+                            },
+                            {
+                                "value": "small", 
+                                "label": "Small"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Custom Content",
+                "name": "Reviews"
+            }
+        ]
+    }
+{% endschema %}
