@@ -11,7 +11,7 @@
         {% for link in linklists.blogs.links %}
             {% if link.handle contains 'news' %}
                 {% assign blog = link.object %}
-                {% for article in blog.articles %}
+                {% for article in blog.articles limit:3 %}
 
                     <div class="col-md-4 article">
                         <a href="{{ article.url }}" class="article__img-wrap d-block">

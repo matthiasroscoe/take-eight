@@ -59,6 +59,11 @@
                 bottom: 0;
                 text-align: right;
 
+                li {
+                    width: 12px;
+                    height: 20px;
+                }
+
                 button::before {
                     font-size: 18px;
                 }
